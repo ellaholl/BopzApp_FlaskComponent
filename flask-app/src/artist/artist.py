@@ -3,11 +3,11 @@ import json
 from src import db
 
 
-products = Blueprint('products', __name__)
+artist = Blueprint('artist', __name__)
 
 # Get all the products from the database
-@products.route('/products', methods=['GET'])
-def get_products():
+@artist.route('/products', methods=['GET'])
+def get_artist():
     # get a cursor object from the database
     cursor = db.get_db().cursor()
 
@@ -32,8 +32,8 @@ def get_products():
     return jsonify(json_data)
 
 # get the top 5 products from the database
-@products.route('/mostExpensive')
-def get_most_pop_products():
+@artist.route('/mostExpensive')
+def get_most_pop_artist():
     cursor = db.get_db().cursor()
     query = '''
         SELECT product_code, product_name, list_price, reorder_level
