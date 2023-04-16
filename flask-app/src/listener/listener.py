@@ -49,20 +49,6 @@ def get_listener_playlist(ListenerID):
     the_response.mimetype = 'application/json'
     return the_response
 
-@listener.route('/playlistSongs/<PlaylistID>', methods=['GET'])
-def get_playlist_song(PlaylistID):
-    cursor = db.get_db().cursor()
-    cursor.execute('select Title, SongID, Length from Song natural join Playlists where PlaylistID = {0}'.format(PlaylistID))
-    row_headers = [x[0] for x in cursor.description]
-    json_data = []
-    theData = cursor.fetchall()
-    for row in theData:
-        json_data.append(dict(zip(row_headers, row)))
-    the_response = make_response(jsonify(json_data))
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
-
 # Get customer detail for customer with particular userID
 @listener.route('/listenerPlan/<ListenerID>', methods=['GET'])
 def get_listener_plan(ListenerID):

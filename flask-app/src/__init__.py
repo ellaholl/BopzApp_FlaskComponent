@@ -32,10 +32,12 @@ def create_app():
     # from src.views import views
     from src.artist.artist import artist
     from src.listener.listener  import listener
+    from src.songs.songs import songs
 
     # Register the routes that we just imported so they can be properly handled
     # app.register_blueprint(views,       url_prefix='/v')
     app.register_blueprint(artist,   url_prefix='/a')
     app.register_blueprint(listener,    url_prefix='/l')
+    app.register_blueprint(songs,    url_prefix='/s')
 
     return app
