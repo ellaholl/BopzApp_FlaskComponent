@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, make_response
+from flask import Blueprint, request, jsonify, make_response, current_app
 import json
 from src import db
 
@@ -99,3 +99,18 @@ def update_listener_plan(ListenerID, SubscriptionTypeID):
     the_response.mimetype = 'application/json'
     return the_response
 
+# update given ListenerID's subscription type to given SubscriptionTypeID
+@listener.route('/updatePlays/<ListenerID>/<SongID>', methods=['PUT'])
+def update_number_plays(ListenerID, SongID):
+
+    cursor = db.get_db().cursor()
+    cursor.execute('select TimesPlayed from ListenerPlays where ListenerID = {0} and SongID = {1}'.format(ListenerID, SongID))
+    theData = cursor.fetchall()
+    print(theData)
+    num = theData[0][0] + 1
+
+    cursor = db.get_db().cursor()
+    cursor.execute('UPDATE ListenerPlays SET TimesPlayed = {0} WHERE ListenerID = {1} and SongID = {2}'.format(num, ListenerID, SongID))
+    db.get_db().commit()
+
+    return "Success"
