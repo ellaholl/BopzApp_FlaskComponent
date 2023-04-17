@@ -78,3 +78,24 @@ def get_plans():
     the_response.status_code = 200
     the_response.mimetype = 'application/json'
     return the_response
+
+
+# update given ListenerID's subscription type to given SubscriptionTypeID
+@listener.route('/listenerPlan/<ListenerID>/<SubscriptionTypeID>', methods=['PUT'])
+def update_listener_plan(ListenerID, SubscriptionTypeID):
+    cursor = db.get_db().cursor()
+    cursor.execute('UPDATE Listener SET SubscriptionTypeID = {0} WHERE ListenerID = {1}'.format(SubscriptionTypeID, ListenerID))
+    db.get_db().commit()
+
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM Listener WHERE ListenerID = {0}'.format(ListenerID))
+    row_headers = [x[0] for x in cursor.description]
+    json_data = []
+    theData = cursor.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    the_response = make_response(jsonify(json_data))
+    the_response.status_code = 200
+    the_response.mimetype = 'application/json'
+    return the_response
+
