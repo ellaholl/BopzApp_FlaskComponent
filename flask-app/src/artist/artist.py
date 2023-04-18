@@ -37,7 +37,7 @@ def get_artist_songs(ArtistID):
     cursor = db.get_db().cursor()
 
     # use cursor to query the database for a list of products
-    cursor.execute('select Title from Song natural join Artist where ArtistID = {0}'.format(ArtistID))
+    cursor.execute('select SongID, Title from Song natural join Artist where ArtistID = {0}'.format(ArtistID))
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
