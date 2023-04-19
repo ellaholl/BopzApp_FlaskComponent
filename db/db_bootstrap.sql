@@ -171,11 +171,12 @@ CREATE TABLE ListenerPlays
 );
 CREATE TABLE Playlists
 (
-   PlaylistID  INTEGER PRIMARY KEY AUTO_INCREMENT,
+   PlaylistID  INTEGER AUTO_INCREMENT,
    Name        VARCHAR(50)  NOT NULL,
    Description VARCHAR(500) NOT NULL,
    ListenerID  INTEGER,
    SongID      INTEGER,
+   PRIMARY KEY (PlaylistID, SongID),
    CONSTRAINT FOREIGN KEY fk_13 (ListenerID) references Listener (ListenerID) ON DELETE cascade,
    CONSTRAINT FOREIGN KEY fk_14 (SongID) references Song (SongID) ON DELETE cascade
 );
