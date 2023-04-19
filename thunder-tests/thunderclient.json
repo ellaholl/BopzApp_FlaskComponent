@@ -260,5 +260,17 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "7e841976-a202-4152-a1dc-2227f1e2a913",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test remove song from playlist",
+    "url": "",
+    "method": "GET",
+    "sortNum": 110000,
+    "created": "2023-04-19T18:18:42.528Z",
+    "modified": "2023-04-19T18:18:42.528Z",
+    "headers": []
   }
 ]

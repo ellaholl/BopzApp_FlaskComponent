@@ -89,6 +89,26 @@ def add_song_playlist():
     db.get_db().commit()
     return "Success"
 
+@listener.route('/removePlaylistSong', methods=['DELETE'])
+def delete_song_playlist():
+    current_app.logger.info('Processing form data')
+    req_data = request.get_json()
+    current_app.logger.info(req_data)
+
+    PlaylistID = str(req_data['PlaylistID'])
+    Name = str(req_data['Name'])
+    Description = str(req_data['Description'])
+    ListenerID = str(req_data['ListenerID'])
+    SongID = str(req_data['SongID'])
+
+    insert_stmt = 'DELETE FROM Playlists WHERE PlaylistID = '
+    insert_stmt+= PlaylistID + 'AND SongID = ' + SongID + ')'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(insert_stmt)
+    db.get_db().commit()
+    return "Success"
+
 
 # Get customer detail for customer with particular userID
 @listener.route('/listenerPlan/<ListenerID>', methods=['GET'])
@@ -147,11 +167,17 @@ def update_number_plays(ListenerID, SongID):
     cursor = db.get_db().cursor()
     cursor.execute('select TimesPlayed from ListenerPlays where ListenerID = {0} and SongID = {1}'.format(ListenerID, SongID))
     theData = cursor.fetchall()
-    print(theData)
-    num = theData[0][0] + 1
 
-    cursor = db.get_db().cursor()
-    cursor.execute('UPDATE ListenerPlays SET TimesPlayed = {0} WHERE ListenerID = {1} and SongID = {2}'.format(num, ListenerID, SongID))
+    if len(theData) > 0:
+        num = theData[0][0] + 1
+
+        cursor = db.get_db().cursor()
+        cursor.execute('UPDATE ListenerPlays SET TimesPlayed = {0} WHERE ListenerID = {1} and SongID = {2}'.format(num, ListenerID, SongID))
+    else:
+        cursor = db.get_db().cursor()
+        cursor.execute('INSERT INTO ListenerPlays  (ListenerID, SongID, TimesPlayed) VALUES ({0} , {1}, 1)'.format(ListenerID, SongID))
+    
     db.get_db().commit()
+
 
     return "Success"
