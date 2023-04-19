@@ -101,8 +101,7 @@ def delete_song_playlist():
     ListenerID = str(req_data['ListenerID'])
     SongID = str(req_data['SongID'])
 
-    insert_stmt = 'DELETE FROM Playlists WHERE PlaylistID = '
-    insert_stmt+= PlaylistID + 'AND SongID = ' + SongID + ')'
+    insert_stmt = 'DELETE FROM Playlists WHERE PlaylistID = ' + PlaylistID + ' AND SongID = ' + SongID 
 
     cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)

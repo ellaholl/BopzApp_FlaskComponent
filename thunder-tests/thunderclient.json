@@ -148,12 +148,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-04-17T22:34:04.283Z",
-    "modified": "2023-04-17T22:34:58.218Z",
+    "modified": "2023-04-19T18:34:22.220Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"AlbumID\": 1,\n    \"ArtistID\": 1,\n    \"GenreID\": 1,\n    \"Length\": 3.25,\n    \"SongID\": 1,\n    \"Title\": \"Louisiana Blues\"\n  }\n]",
+      "raw": "[\n  {\n    \"AlbumID\": 1,\n    \"ArtistID\": 1,\n    \"GenreID\": 1,\n    \"Length\": 3.25,\n    \"SongID\": 80,\n    \"Title\": \"Louisiana Blues\"\n  }\n]",
       "form": []
     },
     "tests": []
@@ -266,11 +266,37 @@
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
     "name": "test remove song from playlist",
-    "url": "",
-    "method": "GET",
+    "url": "localhost:8001/l/removePlaylistSong",
+    "method": "DELETE",
     "sortNum": 110000,
     "created": "2023-04-19T18:18:42.528Z",
-    "modified": "2023-04-19T18:18:42.528Z",
-    "headers": []
+    "modified": "2023-04-19T18:46:53.072Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"Description\": \"A playlist of my favorite songs\",\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\": 1,\n    \"ListenerID\": 1,\n    \"SongID\": 1\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "c256fc35-276b-48c5-9827-eda6793d230f",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test add song to playlist",
+    "url": "localhost:8001/l/addPlaylistSong",
+    "method": "POST",
+    "sortNum": 120000,
+    "created": "2023-04-19T18:43:25.769Z",
+    "modified": "2023-04-19T18:46:42.512Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"Description\": \"A playlist of my favorite songs\",\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\": 1,\n    \"ListenerID\": 1,\n    \"SongID\": 1\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
