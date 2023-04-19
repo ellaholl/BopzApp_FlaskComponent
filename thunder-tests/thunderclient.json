@@ -213,5 +213,52 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "8836c3b2-bca4-45e3-8f38-d1cc2b8a50cf",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test get artists",
+    "url": "localhost:8001/a/artist",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-04-19T01:32:48.034Z",
+    "modified": "2023-04-19T01:32:58.345Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "69837b8b-f4a4-498c-b45b-fe9321f7c9ff",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test add playlist",
+    "url": "localhost:8001/l/addPLaylist",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-04-19T13:24:15.564Z",
+    "modified": "2023-04-19T13:28:27.652Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    'Description': \"A playlist of my favorite songs\",\n    'Name': \"Ellas Song\",\n    'ListenerID': 1\n}\n",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "4ca8fbda-68a1-4dba-95f5-4b6a75c2e212",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test get playlist",
+    "url": "localhost:8001/l/listenerPlaylist/1",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-19T13:25:56.012Z",
+    "modified": "2023-04-19T13:26:13.563Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

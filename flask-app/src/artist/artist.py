@@ -6,6 +6,32 @@ from src import db
 artist = Blueprint('artist', __name__)
 
 # Get all the products from the database
+@artist.route('/artist', methods=['GET'])
+def get_artists():
+    # get a cursor object from the database
+    cursor = db.get_db().cursor()
+
+    # use cursor to query the database for a list of products
+    cursor.execute('select CONCAT(FirstName, LastName) as Name, ArtistID from Artist')
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
+# Get all the products from the database
 @artist.route('/artist/<ArtistID>', methods=['GET'])
 def get_artist(ArtistID):
     # get a cursor object from the database
@@ -62,7 +88,7 @@ def get_artist_plan(ArtistID):
     cursor = db.get_db().cursor()
 
     # use cursor to query the database for a list of products
-    cursor.execute('select * from ArtistPlans natural join Artist where ArtistID = {0}'.format(ArtistID))
+    cursor.execute('SELECT PlanID, PricePerListen, PlanName FROM (SELECT * FROM Artist JOIN ArtistPlans AP on Artist.ArtistPlanID = AP.PlanID) as joined WHERE ArtistID= {0}'.format(ArtistID))
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]
@@ -89,11 +115,11 @@ def add_song():
     req_data = request.get_json()
     current_app.logger.info(req_data)
 
-    Title = req_data['Title']
-    Length = req_data['Length']
-    ArtistID = req_data['ArtistID']
-    AlbumID = req_data['AlbumID']
-    GenreID = req_data['GenreID']
+    Title = str(req_data['Title'])
+    Length = str(req_data['Length'])
+    ArtistID = str(req_data['ArtistID'])
+    AlbumID = str(req_data['AlbumID'])
+    GenreID = str(req_data['GenreID'])
 
     insert_stmt = 'INSERT INTO Song (Title, Length, ArtistID, AlbumID, GenreID) VALUES ("'
     insert_stmt+= Title + '", ' + Length + ', ' + ArtistID + ', ' + AlbumID + ', ' + GenreID + ')'
@@ -124,6 +150,32 @@ def get_song_stats(ArtistID):
 
     # use cursor to query the database for a list of products
     cursor.execute('SELECT Song.Title, Song.ArtistID, SUM(ListenerPlays.TimesPlayed) from ListenerPlays natural join Song GROUP BY Song.Title, Song.SongID HAVING Song.ArtistID = {0}'.format(ArtistID))
+
+    # grab the column headers from the returned data
+    column_headers = [x[0] for x in cursor.description]
+
+    # create an empty dictionary object to use in 
+    # putting column headers together with data
+    json_data = []
+
+    # fetch all the data from the cursor
+    theData = cursor.fetchall()
+
+    # for each of the rows, zip the data elements together with
+    # the column headers. 
+    for row in theData:
+        json_data.append(dict(zip(column_headers, row)))
+
+    return jsonify(json_data)
+
+
+@artist.route('/artistAlbums/<ArtistID>', methods=['GET'])
+def get_artist_albums(ArtistID):
+    # get a cursor object from the database
+    cursor = db.get_db().cursor()
+
+    # use cursor to query the database for a list of products
+    cursor.execute('select albumID, album_name from Album natural join Artist where ArtistID = {0}'.format(ArtistID))
 
     # grab the column headers from the returned data
     column_headers = [x[0] for x in cursor.description]

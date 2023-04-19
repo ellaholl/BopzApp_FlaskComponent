@@ -49,6 +49,25 @@ def get_listener_playlist(ListenerID):
     the_response.mimetype = 'application/json'
     return the_response
 
+@listener.route('/addPlaylist', methods=['POST'])
+def add_playlist(ListenerID):
+    current_app.logger.info('Processing form data')
+    req_data = request.get_json()
+    current_app.logger.info(req_data)
+
+    Name = str(req_data['Name'])
+    Description = str(req_data['Description'])
+    ListenerID = str(req_data['ListenerID'])
+    #SongID = str(req_data['SongID'])
+
+    insert_stmt = 'INSERT INTO Playlists (Name, Description, ListenerID, SongID) ("'
+    insert_stmt+= Name + '", "' + Description + '", ' + ListenerID + ',  NULL)'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(insert_stmt)
+    db.get_db().commit()
+    return "Success"
+
 # Get customer detail for customer with particular userID
 @listener.route('/listenerPlan/<ListenerID>', methods=['GET'])
 def get_listener_plan(ListenerID):
