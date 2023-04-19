@@ -50,7 +50,7 @@ def get_listener_playlist(ListenerID):
     return the_response
 
 @listener.route('/addPlaylist', methods=['POST'])
-def add_playlist(ListenerID):
+def add_playlist():
     current_app.logger.info('Processing form data')
     req_data = request.get_json()
     current_app.logger.info(req_data)
@@ -58,15 +58,37 @@ def add_playlist(ListenerID):
     Name = str(req_data['Name'])
     Description = str(req_data['Description'])
     ListenerID = str(req_data['ListenerID'])
-    #SongID = str(req_data['SongID'])
+    SongID = str(req_data['ListenerID'])
 
-    insert_stmt = 'INSERT INTO Playlists (Name, Description, ListenerID, SongID) ("'
-    insert_stmt+= Name + '", "' + Description + '", ' + ListenerID + ',  NULL)'
+
+    insert_stmt = 'INSERT INTO Playlists (Name, Description, ListenerID, SongID) VALUES ("'
+    insert_stmt+= Name + '", "' + Description + '", ' + ListenerID + ',' + SongID + ')'
 
     cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)
     db.get_db().commit()
     return "Success"
+
+@listener.route('/addPlaylistSong', methods=['POST'])
+def add_song_playlist():
+    current_app.logger.info('Processing form data')
+    req_data = request.get_json()
+    current_app.logger.info(req_data)
+
+    PlaylistID = str(req_data['PlaylistID'])
+    Name = str(req_data['Name'])
+    Description = str(req_data['Description'])
+    ListenerID = str(req_data['ListenerID'])
+    SongID = str(req_data['SongID'])
+
+    insert_stmt = 'INSERT INTO Playlists (PlaylistID, Name, Description, ListenerID, SongID) VALUES ('
+    insert_stmt+= PlaylistID + ',"' + Name + '", "' + Description + '", ' + ListenerID + ',' + SongID + ')'
+
+    cursor = db.get_db().cursor()
+    cursor.execute(insert_stmt)
+    db.get_db().commit()
+    return "Success"
+
 
 # Get customer detail for customer with particular userID
 @listener.route('/listenerPlan/<ListenerID>', methods=['GET'])
