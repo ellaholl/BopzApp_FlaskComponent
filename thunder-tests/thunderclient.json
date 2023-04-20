@@ -17,7 +17,7 @@
     "_id": "2535a705-74db-4881-a1eb-a3a8864cd5d3",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test get listeners",
+    "name": "test get_listeners",
     "url": "localhost:8001/l/listener",
     "method": "GET",
     "sortNum": 20000,
@@ -73,118 +73,137 @@
     "_id": "07faa5ce-2055-4ecd-b1da-eb8502933061",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test get artist info",
+    "name": "test getArtist 1",
     "url": "localhost:8001/a/artist/1",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-04-17T21:49:44.829Z",
-    "modified": "2023-04-17T21:50:23.750Z",
+    "modified": "2023-04-20T18:59:21.780Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "4158fcbe-721e-4f99-b95b-ade4c236b23d",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test get artist's songs",
-    "url": "localhost:8001/a/ArtistSongs/1",
+    "name": "test getArtistSongs 1",
+    "url": "localhost:8001/a/ArtistSongs/2",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-17T21:49:53.460Z",
-    "modified": "2023-04-17T21:50:37.462Z",
+    "modified": "2023-04-20T19:03:47.568Z",
     "headers": [],
     "params": [],
-    "tests": []
-  },
-  {
-    "_id": "c938597f-f4dc-4f5f-8ec9-3c53b56f996c",
-    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
-    "containerId": "",
-    "name": "get all songs",
-    "url": "localhost:8001/s/songs",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2023-04-17T21:53:34.158Z",
-    "modified": "2023-04-17T21:53:45.728Z",
-    "headers": [],
-    "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "d1d81539-395a-4fdc-894d-dfde1cb9c059",
     "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
     "containerId": "",
-    "name": "get a song",
-    "url": "localhost:8001/s/songs/1",
+    "name": "test get_song 1",
+    "url": "localhost:8001/s/songs/2",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-17T21:54:08.521Z",
-    "modified": "2023-04-17T21:54:15.440Z",
+    "modified": "2023-04-20T19:20:39.545Z",
     "headers": [],
     "params": [],
-    "tests": []
-  },
-  {
-    "_id": "ad2b0464-9f5a-40d5-add0-374eb62bcb73",
-    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
-    "containerId": "",
-    "name": "get playlist's songs",
-    "url": "localhost:8001/s/playlistSongs/1",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-04-17T21:54:35.031Z",
-    "modified": "2023-04-17T21:54:42.368Z",
-    "headers": [],
-    "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "23ac5c09-3a71-4c16-b8c7-3a7e60443d78",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test add song",
+    "name": "test add_song 1",
     "url": "localhost:8001/a/addSong",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-04-17T22:34:04.283Z",
-    "modified": "2023-04-19T18:34:22.220Z",
+    "modified": "2023-04-20T19:08:41.243Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"AlbumID\": 1,\n    \"ArtistID\": 1,\n    \"GenreID\": 1,\n    \"Length\": 3.25,\n    \"SongID\": 80,\n    \"Title\": \"Louisiana Blues\"\n  }\n]",
+      "raw": "{\n    \"AlbumID\": 1,\n    \"ArtistID\": 1,\n    \"GenreID\": 1,\n    \"Length\": 3.25,\n    \"Title\": \"Hi Blues\"\n  \n}",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "8704c153-2875-4f8f-af05-bc89ffbf5e88",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test remove song",
+    "name": "test remove_song 1",
     "url": "localhost:8001/a/removeSong/80",
     "method": "DELETE",
     "sortNum": 40000,
     "created": "2023-04-17T22:34:12.738Z",
-    "modified": "2023-04-17T22:37:18.233Z",
+    "modified": "2023-04-20T19:10:24.692Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"AlbumID\": 2,\n    \"ArtistID\": 1,\n    \"GenreID\": 3,\n    \"Length\": 3.9,\n    \"Title\": \"Goodbye Blues\"\n  \n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "22095bc3-47dd-477d-b2be-a901f66302d6",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test get song stats",
+    "name": "test get_song_stats 1",
     "url": "localhost:8001/a/SongStats/1",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-04-17T23:03:02.229Z",
-    "modified": "2023-04-17T23:06:08.035Z",
+    "modified": "2023-04-20T19:11:33.293Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "cee1acbd-847b-41a2-80ee-29508809daf3",
@@ -204,29 +223,43 @@
     "_id": "4c0254e5-8a36-4117-b852-6e98ed0d6fff",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test get artist plan",
+    "name": "test get_artist_plan 1",
     "url": "localhost:8001/a/artistPlan/1",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-04-17T23:39:21.635Z",
-    "modified": "2023-04-17T23:39:33.641Z",
+    "modified": "2023-04-20T19:05:32.592Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "8836c3b2-bca4-45e3-8f38-d1cc2b8a50cf",
     "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
     "containerId": "",
-    "name": "test get artists",
+    "name": "test getArtists",
     "url": "localhost:8001/a/artist",
     "method": "GET",
     "sortNum": 70000,
     "created": "2023-04-19T01:32:48.034Z",
-    "modified": "2023-04-19T01:32:58.345Z",
+    "modified": "2023-04-20T19:02:19.145Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "69837b8b-f4a4-498c-b45b-fe9321f7c9ff",
@@ -298,5 +331,372 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "61ae658b-c0ae-4f9a-9513-656975ba54aa",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test update_artist_plan 1",
+    "url": "localhost:8001/a/artistPlan/4/1",
+    "method": "PUT",
+    "sortNum": 80000,
+    "created": "2023-04-20T14:25:55.243Z",
+    "modified": "2023-04-20T19:14:27.271Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "19e3722c-b99d-476a-b059-2d7709895b70",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test getArtist 2",
+    "url": "localhost:8001/a/artist/2",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-20T18:59:33.805Z",
+    "modified": "2023-04-20T19:00:19.529Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "170b2d96-f93c-45a6-9dcf-8b24d83bea3c",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test getArtistSongs 2",
+    "url": "localhost:8001/a/ArtistSongs/1",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-04-20T19:03:39.738Z",
+    "modified": "2023-04-20T19:03:39.738Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "7b5feb0d-1cf3-4e4b-bb76-23d53649ef4b",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test get_artist_plan 2",
+    "url": "localhost:8001/a/artistPlan/2",
+    "method": "GET",
+    "sortNum": 65000,
+    "created": "2023-04-20T19:05:05.777Z",
+    "modified": "2023-04-20T19:05:26.417Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "0061182b-7fa7-4cbb-8282-7092805e3b7d",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test add_song 2",
+    "url": "localhost:8001/a/addSong",
+    "method": "POST",
+    "sortNum": 35000,
+    "created": "2023-04-20T19:08:55.945Z",
+    "modified": "2023-04-20T19:09:21.242Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"AlbumID\": 2,\n    \"ArtistID\": 1,\n    \"GenreID\": 3,\n    \"Length\": 3.9,\n    \"Title\": \"Goodbye Blues\"\n  \n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "6ece427b-4470-4b8a-a55e-3b81af93dab3",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test remove_song 2",
+    "url": "localhost:8001/a/removeSong/80",
+    "method": "DELETE",
+    "sortNum": 45000,
+    "created": "2023-04-20T19:10:38.343Z",
+    "modified": "2023-04-20T19:10:58.122Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"AlbumID\": 1,\n    \"ArtistID\": 1,\n    \"GenreID\": 1,\n    \"Length\": 3.25,\n    \"Title\": \"Hi Blues\"\n  \n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "9f9fba41-c9ff-4fea-817b-671efac48d59",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test get_song_stats 2",
+    "url": "localhost:8001/a/SongStats/2",
+    "method": "GET",
+    "sortNum": 55000,
+    "created": "2023-04-20T19:11:38.983Z",
+    "modified": "2023-04-20T19:11:52.299Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "f6109c49-2f4d-4429-bd63-2f7638cdf941",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test get_artist_albums 1",
+    "url": "localhost:8001/a/artistAlbums/1",
+    "method": "GET",
+    "sortNum": 90000,
+    "created": "2023-04-20T19:12:25.121Z",
+    "modified": "2023-04-20T19:12:43.437Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "eea95091-7b07-49b6-a3f1-ff0d19ea9fa5",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test get_artist_albums 2",
+    "url": "localhost:8001/a/artistAlbums/2",
+    "method": "GET",
+    "sortNum": 100000,
+    "created": "2023-04-20T19:12:48.116Z",
+    "modified": "2023-04-20T19:12:56.066Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "4c463d15-79c0-4db1-9b74-42a73e066a63",
+    "colId": "aaff5187-c6bb-46f1-8bf5-37c070cb7e88",
+    "containerId": "",
+    "name": "test update_artist_plan 2",
+    "url": "localhost:8001/a/artistPlan/1/2",
+    "method": "PUT",
+    "sortNum": 85000,
+    "created": "2023-04-20T19:13:49.073Z",
+    "modified": "2023-04-20T19:14:36.984Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "70d6a199-ce2b-4007-86f6-b79310320296",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_song 2",
+    "url": "localhost:8001/s/songs/1",
+    "method": "GET",
+    "sortNum": 25000,
+    "created": "2023-04-20T19:20:29.752Z",
+    "modified": "2023-04-20T19:20:29.752Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "4abb01e0-3d24-48df-8cf8-d4c38f43a05d",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_playlist_songs 1",
+    "url": "localhost:8001/s/playlistSongs/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-20T19:21:18.242Z",
+    "modified": "2023-04-20T19:22:13.489Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "7fbeb520-198c-4805-aa9c-5b4382e37ef9",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_playlist_songs 2",
+    "url": "localhost:8001/s/playlistSongs/2",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-20T19:22:27.688Z",
+    "modified": "2023-04-20T19:22:42.217Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "498f9302-715a-4b53-b5ac-1e047c40b886",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_songs",
+    "url": "localhost:8001/s/songs",
+    "method": "GET",
+    "sortNum": 15000,
+    "created": "2023-04-20T19:22:56.726Z",
+    "modified": "2023-04-20T19:22:56.726Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "848d2c18-c0f5-41e9-a6f5-54c59218a7e1",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_playlist_description 1",
+    "url": "localhost:8001/s/playlistDesc/1",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-04-20T19:23:24.011Z",
+    "modified": "2023-04-20T19:23:46.371Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "de48b7db-5bf8-45de-b246-c52fc9247a08",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_playlist_description 2",
+    "url": "localhost:8001/s/playlistDesc/3",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-20T19:23:49.760Z",
+    "modified": "2023-04-20T19:23:59.063Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "1d5de884-23a7-4c29-a885-84b582eaa890",
+    "colId": "f85f48c1-8219-4e49-9b7f-9a12748e59f9",
+    "containerId": "",
+    "name": "test get_genres",
+    "url": "localhost:8001/s/getGenres",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-04-20T19:24:12.606Z",
+    "modified": "2023-04-20T19:24:36.124Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   }
 ]
