@@ -3,15 +3,22 @@
     "_id": "2b9ffea5-585b-4000-aed7-67e9d471f4c0",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test update subscription type",
+    "name": "test update_listener_plan 1",
     "url": "localhost:8001/l/listenerPlan/1/3",
     "method": "PUT",
     "sortNum": 10000,
     "created": "2023-04-17T21:30:49.841Z",
-    "modified": "2023-04-17T21:30:58.503Z",
+    "modified": "2023-04-20T19:31:21.463Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "2535a705-74db-4881-a1eb-a3a8864cd5d3",
@@ -22,52 +29,59 @@
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-04-17T21:36:23.801Z",
-    "modified": "2023-04-17T21:37:27.288Z",
+    "modified": "2023-04-20T19:34:44.638Z",
     "headers": [],
     "params": [],
-    "tests": []
-  },
-  {
-    "_id": "e3c2a0ac-d97e-43e2-92f2-f8e5255022ec",
-    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
-    "containerId": "",
-    "name": "test get listener",
-    "url": "localhost:8001/l/listener/1",
-    "method": "GET",
-    "sortNum": 30000,
-    "created": "2023-04-17T21:43:22.086Z",
-    "modified": "2023-04-17T21:43:30.650Z",
-    "headers": [],
-    "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "986bb45f-f2e4-491a-89c8-9a857a9eebea",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test get listener subscription info",
-    "url": "localhost:8001/l/listenerPlan/1",
+    "name": "test get_listener_plan 1",
+    "url": "localhost:8001/l/listenerPlan/2",
     "method": "GET",
     "sortNum": 50000,
     "created": "2023-04-17T21:47:22.480Z",
-    "modified": "2023-04-17T21:47:29.682Z",
+    "modified": "2023-04-20T19:48:41.184Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "a00e940d-1404-414c-b26e-1afbdb781841",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test get all subscriptions",
+    "name": "test get_plans",
     "url": "localhost:8001/l/listenerPlan",
     "method": "GET",
     "sortNum": 60000,
     "created": "2023-04-17T21:48:33.486Z",
-    "modified": "2023-04-17T21:48:40.782Z",
+    "modified": "2023-04-20T19:48:07.744Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "07faa5ce-2055-4ecd-b1da-eb8502933061",
@@ -209,15 +223,22 @@
     "_id": "cee1acbd-847b-41a2-80ee-29508809daf3",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test update number plays",
-    "url": "localhost:8001/l/updatePlays/1/1",
+    "name": "test update_number_plays 1",
+    "url": "localhost:8001/l/updatePlays/1/8",
     "method": "PUT",
     "sortNum": 70000,
     "created": "2023-04-17T23:23:31.650Z",
-    "modified": "2023-04-17T23:30:55.073Z",
+    "modified": "2023-04-20T19:50:46.111Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "4c0254e5-8a36-4117-b852-6e98ed0d6fff",
@@ -265,72 +286,95 @@
     "_id": "69837b8b-f4a4-498c-b45b-fe9321f7c9ff",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test add playlist",
-    "url": "localhost:8001/l/addPLaylist",
+    "name": "test add_playlist 1",
+    "url": "localhost:8001/l/addPlaylist",
     "method": "POST",
     "sortNum": 80000,
     "created": "2023-04-19T13:24:15.564Z",
-    "modified": "2023-04-19T13:28:27.652Z",
+    "modified": "2023-04-20T19:41:13.491Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    'Description': \"A playlist of my favorite songs\",\n    'Name': \"Ellas Song\",\n    'ListenerID': 1\n}\n",
+      "raw": "\n  {\n    \"Description\": \"The Best Playlist\",\n    \"Name\": \"Ella's Songs\",\n    \"ListenerID\": 3\n  }",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "4ca8fbda-68a1-4dba-95f5-4b6a75c2e212",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test get playlist",
+    "name": "test get_playlist 1",
     "url": "localhost:8001/l/listenerPlaylist/1",
     "method": "GET",
     "sortNum": 100000,
     "created": "2023-04-19T13:25:56.012Z",
-    "modified": "2023-04-19T13:26:13.563Z",
+    "modified": "2023-04-20T19:35:22.884Z",
     "headers": [],
     "params": [],
-    "tests": []
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
   },
   {
     "_id": "7e841976-a202-4152-a1dc-2227f1e2a913",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test remove song from playlist",
-    "url": "localhost:8001/l/removePlaylistSong",
+    "name": "test remove_playlist_song 1",
+    "url": "localhost:8001/l/removePlaylistSong/1/1",
     "method": "DELETE",
     "sortNum": 110000,
     "created": "2023-04-19T18:18:42.528Z",
-    "modified": "2023-04-19T18:46:53.072Z",
+    "modified": "2023-04-20T19:44:46.495Z",
     "headers": [],
     "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n    \"Description\": \"A playlist of my favorite songs\",\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\": 1,\n    \"ListenerID\": 1,\n    \"SongID\": 1\n}",
-      "form": []
-    },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "c256fc35-276b-48c5-9827-eda6793d230f",
     "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
     "containerId": "",
-    "name": "test add song to playlist",
+    "name": "test add_playlist_song 1",
     "url": "localhost:8001/l/addPlaylistSong",
     "method": "POST",
     "sortNum": 120000,
     "created": "2023-04-19T18:43:25.769Z",
-    "modified": "2023-04-19T18:46:42.512Z",
+    "modified": "2023-04-20T19:46:11.331Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"Description\": \"A playlist of my favorite songs\",\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\": 1,\n    \"ListenerID\": 1,\n    \"SongID\": 1\n}",
+      "raw": "{\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\":21,\n    \"ListenerID\": 1,\n    \"SongID\": 4\n}",
       "form": []
     },
-    "tests": []
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
   },
   {
     "_id": "61ae658b-c0ae-4f9a-9513-656975ba54aa",
@@ -688,6 +732,252 @@
     "sortNum": 60000,
     "created": "2023-04-20T19:24:12.606Z",
     "modified": "2023-04-20T19:24:36.124Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "83a23de8-f7d4-4604-9d25-9eb184ccd8cb",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test update_listener_plan 2",
+    "url": "localhost:8001/l/listenerPlan/1/3",
+    "method": "PUT",
+    "sortNum": 15000,
+    "created": "2023-04-20T19:31:25.140Z",
+    "modified": "2023-04-20T19:31:25.140Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "f814ac76-f83b-47d2-ae13-109502f25aa9",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test get_listener_info 1",
+    "url": "localhost:8001/l/listener/1",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-04-20T19:32:57.641Z",
+    "modified": "2023-04-20T19:33:54.232Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "84f89a4d-59b9-441f-a4e6-21c84bed26f0",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test get_listener_info 2",
+    "url": "localhost:8001/l/listener/2",
+    "method": "GET",
+    "sortNum": 45000,
+    "created": "2023-04-20T19:33:26.849Z",
+    "modified": "2023-04-20T19:33:44.994Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "51a7880d-2064-4962-90b5-235b40b06827",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test get_playlist 2",
+    "url": "localhost:8001/l/listenerPlaylist/1",
+    "method": "GET",
+    "sortNum": 105000,
+    "created": "2023-04-20T19:35:07.514Z",
+    "modified": "2023-04-20T19:35:32.479Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "4153c2de-87f5-4408-a195-2a84009a5926",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test add_playlist 2",
+    "url": "localhost:8001/l/addPlaylist",
+    "method": "POST",
+    "sortNum": 90000,
+    "created": "2023-04-20T19:40:45.242Z",
+    "modified": "2023-04-20T19:40:45.242Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "\n  {\n    \"Description\": \"A playlist of my favorite songs\",\n    \"Name\": \"My Favorite Songs\",\n    \"ListenerID\": 1\n  }",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "7b06867b-8364-4219-843e-4a04a0faffc9",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test remove_playlist_song 2",
+    "url": "localhost:8001/l/removePlaylistSong/101/1",
+    "method": "DELETE",
+    "sortNum": 115000,
+    "created": "2023-04-20T19:43:39.271Z",
+    "modified": "2023-04-20T19:45:31.657Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\":101,\n    \"ListenerID\": 1,\n    \"SongID\": 14\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "2ee55a5a-dcb8-4a33-a712-506553f12ee1",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test add_playlist_song 2",
+    "url": "localhost:8001/l/addPlaylistSong",
+    "method": "POST",
+    "sortNum": 130000,
+    "created": "2023-04-20T19:46:20.583Z",
+    "modified": "2023-04-20T19:47:01.908Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"Name\": \"My Favorite Songs\",\n    \"PlaylistID\": 101,\n    \"ListenerID\": 9,\n    \"SongID\": 8\n}",
+      "form": []
+    },
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "4d7c35f2-ae09-4f87-b73b-73eb98c894cd",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test get_listener_plan 2",
+    "url": "localhost:8001/l/listenerPlan/1",
+    "method": "GET",
+    "sortNum": 55000,
+    "created": "2023-04-20T19:48:33.532Z",
+    "modified": "2023-04-20T19:48:33.532Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "3f8bdfd4-d51f-4369-98b3-9221530ada6e",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test update_number_plays 2",
+    "url": "localhost:8001/l/updatePlays/1/1",
+    "method": "PUT",
+    "sortNum": 75000,
+    "created": "2023-04-20T19:50:36.837Z",
+    "modified": "2023-04-20T19:50:36.837Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "equal",
+        "value": "Success"
+      }
+    ]
+  },
+  {
+    "_id": "c8a36fb9-ae0a-445d-9fe6-b6a9ec40d09e",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test update_listener_plan 1",
+    "url": "localhost:8001/l/listenerPlan/8/1",
+    "method": "PUT",
+    "sortNum": 130000,
+    "created": "2023-04-20T19:51:40.016Z",
+    "modified": "2023-04-20T19:53:10.829Z",
+    "headers": [],
+    "params": [],
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      }
+    ]
+  },
+  {
+    "_id": "867d2012-f04b-4370-b12b-3defc8a08abb",
+    "colId": "dbe790d7-ded9-433e-a063-ee2cbbbd84ab",
+    "containerId": "",
+    "name": "test update_listener_plan 2",
+    "url": "localhost:8001/l/listenerPlan/1/2",
+    "method": "PUT",
+    "sortNum": 140000,
+    "created": "2023-04-20T19:52:57.134Z",
+    "modified": "2023-04-20T19:52:57.134Z",
     "headers": [],
     "params": [],
     "tests": [

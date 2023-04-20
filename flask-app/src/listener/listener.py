@@ -5,7 +5,7 @@ from src import db
 
 listener = Blueprint('listener', __name__)
 
-# Get all customers from the DB
+# Get all listeners from the DB
 @listener.route('/listener', methods=['GET'])
 def get_listeners():
     cursor = db.get_db().cursor()
@@ -20,7 +20,6 @@ def get_listeners():
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get customer detail for customer with particular userID
 @listener.route('/listener/<ListenerID>', methods=['GET'])
 def get_listener_info(ListenerID):
     cursor = db.get_db().cursor()
@@ -77,29 +76,19 @@ def add_song_playlist():
 
     PlaylistID = str(req_data['PlaylistID'])
     Name = str(req_data['Name'])
-    Description = str(req_data['Description'])
     ListenerID = str(req_data['ListenerID'])
     SongID = str(req_data['SongID'])
 
     insert_stmt = 'INSERT INTO Playlists (PlaylistID, Name, Description, ListenerID, SongID) VALUES ('
-    insert_stmt+= PlaylistID + ',"' + Name + '", "' + Description + '", ' + ListenerID + ',' + SongID + ')'
+    insert_stmt+= PlaylistID + ',"' + Name + '", " '  + '", ' + ListenerID + ',' + SongID + ')'
 
     cursor = db.get_db().cursor()
     cursor.execute(insert_stmt)
     db.get_db().commit()
     return "Success"
 
-@listener.route('/removePlaylistSong', methods=['DELETE'])
-def delete_song_playlist():
-    current_app.logger.info('Processing form data')
-    req_data = request.get_json()
-    current_app.logger.info(req_data)
-
-    PlaylistID = str(req_data['PlaylistID'])
-    Name = str(req_data['Name'])
-    Description = str(req_data['Description'])
-    ListenerID = str(req_data['ListenerID'])
-    SongID = str(req_data['SongID'])
+@listener.route('/removePlaylistSong/<PlaylistID>/<SongID>', methods=['DELETE'])
+def delete_song_playlist(PlaylistID, SongID):
 
     insert_stmt = 'DELETE FROM Playlists WHERE PlaylistID = ' + PlaylistID + ' AND SongID = ' + SongID 
 
@@ -109,7 +98,6 @@ def delete_song_playlist():
     return "Success"
 
 
-# Get customer detail for customer with particular userID
 @listener.route('/listenerPlan/<ListenerID>', methods=['GET'])
 def get_listener_plan(ListenerID):
     cursor = db.get_db().cursor()
@@ -124,7 +112,7 @@ def get_listener_plan(ListenerID):
     the_response.mimetype = 'application/json'
     return the_response
 
-# Get all customers from the DB
+
 @listener.route('/listenerPlan/', methods=['GET'])
 def get_plans():
     cursor = db.get_db().cursor()
