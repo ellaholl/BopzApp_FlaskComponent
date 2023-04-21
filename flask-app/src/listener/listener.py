@@ -147,7 +147,7 @@ def update_listener_plan(ListenerID, SubscriptionTypeID):
     the_response.mimetype = 'application/json'
     return the_response
 
-# update given ListenerID's subscription type to given SubscriptionTypeID
+# update given ListenerID's plays for a songid they listen to
 @listener.route('/updatePlays/<ListenerID>/<SongID>', methods=['PUT'])
 def update_number_plays(ListenerID, SongID):
 
