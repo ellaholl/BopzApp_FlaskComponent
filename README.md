@@ -1,6 +1,6 @@
 # The Bopz App
 ### Link to our video: https://drive.google.com/file/d/1UoGshQdZ1_WZqwWJ92t4zpu93OE7UlTr/view
-### Link to our Appsmith UI: https://github.com/yeje88/Bopz_theFinal
+### Link to our UI: https://github.com/yeje88/Bopz_theFinal
 
 The Bopz app is a music platform focused on highlighting up and coming artists. This repository contains code for three docker containers that make up the project - a MySQL database container, python flask container, and local appsmith server. Using this code, the containers are configured throguh the docker-compose.yml file. With these docker containers and proper setup (specified in sections below), the app provides two user profiles for a standard listener and artist.
 
