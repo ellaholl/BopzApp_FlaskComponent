@@ -101,7 +101,7 @@ def get_artist_plan(ArtistID):
 
     return jsonify(json_data)
 
-#update given ListenerID's subscription type to given SubscriptionTypeID
+# add a new song to an artist
 @artist.route('/addSong', methods=['POST'])
 def add_song():
     current_app.logger.info('Processing form data')
@@ -123,7 +123,7 @@ def add_song():
     return "Success"
 
 
-# update given ListenerID's subscription type to given SubscriptionTypeID
+# remove a song from an artist
 @artist.route('/removeSong/<SongID>', methods=['DELETE'])
 def remove_song(SongID):
     # get a cursor object from the database
@@ -135,6 +135,7 @@ def remove_song(SongID):
     return "Success"
 
 
+# get all song statistics for one artist
 @artist.route('/SongStats/<ArtistID>', methods=['GET'])
 def get_song_stats(ArtistID):
     # get a cursor object from the database
